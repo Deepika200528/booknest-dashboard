@@ -1,33 +1,48 @@
-import AcmeLogo from '@/app/ui/acme-logo';
-import { ArrowRightIcon } from '@heroicons/react/24/outline';
+// app/page.tsx
 import Link from 'next/link';
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
 
-export default function Page() {
+export default function HomePage() {
   return (
-    <main className="flex min-h-screen flex-col p-6">
-      <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-52">
-        {/* <AcmeLogo /> */}
-      </div>
-      <div className="mt-4 flex grow flex-col gap-4 md:flex-row">
-        <div className="flex flex-col justify-center gap-6 rounded-lg bg-gray-50 px-6 py-10 md:w-2/5 md:px-20">
-          <p className={`text-xl text-gray-800 md:text-3xl md:leading-normal`}>
-            <strong>Welcome to Acme.</strong> This is the example for the{' '}
-            <a href="https://nextjs.org/learn/" className="text-blue-500">
-              Next.js Learn Course
-            </a>
-            , brought to you by Vercel.
+    <main className="flex flex-col min-h-screen bg-white">
+      {/* Welcome Section Centered */}
+      <section className="flex flex-1 items-center justify-center px-6 bg-gradient-to-br from-yellow-100 via-white to-indigo-100">
+        <div className="text-center max-w-2xl">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-indigo-700 mb-4">
+            Welcome to <span className="text-orange-500">BookNest</span> 📚
+          </h1>
+          <p className="text-lg md:text-xl text-gray-700 mb-8">
+            Discover, explore, and manage your digital book collection with ease.
+            Whether you're a casual reader or a passionate bookworm, BookNest has everything you need.
           </p>
           <Link
-            href="/login"
-            className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
+            href="/dashboard"
+            className="inline-flex items-center gap-3 px-6 py-3 bg-indigo-600 text-white rounded-lg text-base hover:bg-indigo-500 transition"
           >
-            <span>Log in</span> <ArrowRightIcon className="w-5 md:w-6" />
+            Browse Books
+            <ArrowRightIcon className="w-5 h-5" />
           </Link>
         </div>
-        <div className="flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12">
-          {/* Add Hero Images Here */}
+      </section>
+
+      {/* Feature Highlights Section */}
+      <section className="py-12 bg-white px-8 md:px-20">
+        <h2 className="text-3xl font-bold text-center text-indigo-700 mb-10">Why BookNest?</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          <div className="p-6 rounded-lg shadow hover:shadow-md transition">
+            <h3 className="text-xl font-semibold text-orange-500">Organize Books</h3>
+            <p className="mt-2 text-gray-600">Easily manage your collection by title, author, and category.</p>
+          </div>
+          <div className="p-6 rounded-lg shadow hover:shadow-md transition">
+            <h3 className="text-xl font-semibold text-orange-500">Track Your Reads</h3>
+            <p className="mt-2 text-gray-600">Keep track of what you've read and what's next on your list.</p>
+          </div>
+          <div className="p-6 rounded-lg shadow hover:shadow-md transition">
+            <h3 className="text-xl font-semibold text-orange-500">Quick Access</h3>
+            <p className="mt-2 text-gray-600">Search and filter books instantly — no clutter, just clarity.</p>
+          </div>
         </div>
-      </div>
+      </section>
     </main>
   );
 }
